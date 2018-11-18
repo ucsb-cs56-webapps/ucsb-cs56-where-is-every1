@@ -18,6 +18,15 @@
 	/* border-style: green;*/
 }
 
+.navbar-brand {
+	color: #c6c4bc !important;
+}
+
+.navbar {
+	height: 50px;
+	color: #586069 !important;
+}
+
 form {
 	margin-right: 5px;
 	max-width: 100%;
@@ -67,9 +76,9 @@ input {
 }
 
 body {
-	background-image: url("../images/background.png"); font-family :
-	-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-	sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	background-image: url("../images/background.png");
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	background-color: grey;
 	line-height: 1.5;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
