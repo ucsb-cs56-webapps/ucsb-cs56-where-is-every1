@@ -1,3 +1,3 @@
-/home/luna/cs56/SpringMVCFormSubmission/src/main/java/com/whereisevery1/formsubmission/SpringRoomRequestSubmissionApplication.java
-/home/luna/cs56/SpringMVCFormSubmission/src/main/java/com/whereisevery1/formsubmission/model/RoomRequest.java
-/home/luna/cs56/SpringMVCFormSubmission/src/main/java/com/whereisevery1/formsubmission/controller/RoomRequestController.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/controller/RoomRequestController.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/model/RoomRequest.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/SpringRoomRequestSubmissionApplication.java

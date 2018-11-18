@@ -9,7 +9,7 @@
 # Eclipse files
 .project
 .classpath
-.settings
+.settings/
 
 # Mac OS
 .DS_Store
