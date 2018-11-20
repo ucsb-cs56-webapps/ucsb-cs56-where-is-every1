@@ -8,6 +8,7 @@ import com.whereisevery1.database.model.Customer;
 
 public interface CustomerRepository extends MongoRepository<Customer, String> {
 
+	//public List<Customer> findAllBuildings(String buildingName);
     public Customer findByBuildingName(String buildingName);
     public List<Customer> findByRoomNumber(long roomNumber);
 

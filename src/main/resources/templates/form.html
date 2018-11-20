@@ -32,10 +32,9 @@
 			<p>
 				Building<br /> <input autofocus="true" class="inputField" type="text"
 					maxlength="20" th:field="*{buildingName}" list="roomList" />
+					
 				<datalist id="roomList">
-					<option value="phelps" />
-					<option value="hfh" />
-					<option value="coolBuildingBruh" />
+					  <option th:each="row : ${buildinglist}" th:value="${row}" th:label="${row}"/>
 				</datalist>
 			</p>
 			<p>

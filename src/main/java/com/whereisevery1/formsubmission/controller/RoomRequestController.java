@@ -1,5 +1,7 @@
 package com.whereisevery1.formsubmission.controller;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,10 @@ public class RoomRequestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String customerForm(Model model) {
 		model.addAttribute("roomrequest", new RoomRequest()); 
+		ArrayList<String> n = new ArrayList<String>();
+		n.add("hfh");
+		n.add("phelps");
+		model.addAttribute("buildinglist", n);
 		return "form";
 	}
 
