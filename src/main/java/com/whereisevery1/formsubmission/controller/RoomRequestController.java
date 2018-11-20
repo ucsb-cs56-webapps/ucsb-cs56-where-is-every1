@@ -21,14 +21,14 @@ public class RoomRequestController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String customerForm(Model model) {
-		model.addAttribute("roomrequest", new RoomRequest());
+		model.addAttribute("roomrequest", new RoomRequest()); 
 		return "form";
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String customerSubmit(@ModelAttribute RoomRequest roomRequest, Model model) {
 
-		model.addAttribute("roomrequest", roomRequest);
+		//model.addAttribute("roomrequest", roomRequest);
 		Customer FoundBuilding = repository.findByBuildingName(roomRequest.getBuildingName());
 		if (FoundBuilding == null) {
 			FoundBuilding = new Customer("No such building found", 666);
