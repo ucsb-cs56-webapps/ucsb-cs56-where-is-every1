@@ -30,11 +30,13 @@
 		<form action="#" th:action="@{/}" th:object="${roomrequest}"
 			method="post">
 			<p>
-				Building<br /> <input autofocus="true" class="inputField" type="text"
-					maxlength="20" th:field="*{buildingName}" list="roomList" />
-					
+				Building<br /> <input autofocus="true" class="inputField"
+					type="text" maxlength="20" th:field="*{buildingName}"
+					list="roomList" />
+
 				<datalist id="roomList">
-					  <option th:each="row : ${buildinglist}" th:value="${row}" th:label="${row}"/>
+					<option th:each="row : ${buildinglist}" th:value="${row}"
+						th:label="${row}" />
 				</datalist>
 			</p>
 			<p>

@@ -24,10 +24,12 @@ public class RoomRequestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String customerForm(Model model) {
 		model.addAttribute("roomrequest", new RoomRequest()); 
-		ArrayList<String> n = new ArrayList<String>();
-		n.add("hfh");
-		n.add("phelps");
-		model.addAttribute("buildinglist", n);
+		ArrayList<String> suggestions = new ArrayList<String>();
+		for (Building b : repository.findAll()) {
+			suggestions.add(b.getBuildingName());
+		}
+		
+		model.addAttribute("buildinglist", suggestions);
 		return "form";
 	}
 
@@ -35,9 +37,9 @@ public class RoomRequestController {
 	public String customerSubmit(@ModelAttribute RoomRequest roomRequest, Model model) {
 
 		//model.addAttribute("roomrequest", roomRequest);
-		Customer FoundBuilding = repository.findByBuildingName(roomRequest.getBuildingName());
+		Building FoundBuilding = repository.findByBuildingName(roomRequest.getBuildingName());
 		if (FoundBuilding == null) {
-			FoundBuilding = new Customer("No such building found", 666);
+			FoundBuilding = new Building("No such building found", 666);
 		}
 		
 		model.addAttribute("customer", FoundBuilding);
