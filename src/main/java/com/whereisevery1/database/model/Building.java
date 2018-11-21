@@ -25,11 +25,17 @@ public class Building {
     	return buildingName;
     }
     
+    public ArrayList<Room> getRooms() {
+    	return this.rooms;
+    }
+    
     @Override
     public String toString() {
-        return String.format(
-                "Building[id=%s, buildingName='%s', lastName='%s']",
-                id, buildingName, roomNumber);
+        
+    	return rooms.toString();
+//    	return String.format(
+//                "Building[id=%s, buildingName='%s', rooms='%s']",
+//                id, buildingName, rooms);
     }
 
 }

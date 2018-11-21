@@ -16,6 +16,10 @@ public class Room {
         this.freeTimes = freeTimes;
         this.roomNumber = roomNumber;
     }
+    
+    public String getRoomNumber() {
+    	return Long.toString(roomNumber);
+    }
 
     @Override
     public String toString() {
