@@ -1,3 +1,15 @@
+div.titleArea {
+	position: absolute;
+	top: 10%;
+	left: 30%;
+	
+	margin: auto;
+	text-align: center;
+	padding: 7px;
+	width: 600px;
+	color: black;
+}
+
 .inputArea {
 	position: absolute;
 	top: 50%;
