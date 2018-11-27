@@ -2,7 +2,7 @@ package com.whereisevery1.formsubmission.model;
 
 public class RoomRequest {
 
-	private long roomNumber;
+	private String roomNumber;
 	private String buildingName;
 
 	public String getBuildingName() {
@@ -13,11 +13,11 @@ public class RoomRequest {
 		this.buildingName = buildingName;
 	}
 
-	public long getRoomNumber() {
+	public String getRoomNumber() {
 		return roomNumber;
 	}
 
-	public void setRoomNumber(long roomNumber) {
+	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
 }

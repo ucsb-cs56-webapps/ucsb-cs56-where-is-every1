@@ -39,16 +39,23 @@
 		<form action="#" th:action="@{/}" th:object="${roomrequest}"
 			method="post">
 			<p>
-				Building<br /> <input autofocus="true" class="inputField" type="text"
-					maxlength="20" th:field="*{buildingName}" list="roomList" />
-					
-				<datalist id="roomList">
-					  <option th:each="row : ${buildinglist}" th:value="${row}" th:label="${row}"/>
+				Building<br /> <input onblur="this.form.submit()"
+					class="inputField" type="text" maxlength="20"
+					th:field="*{buildingName}" list="buildingList" />
+
+				<datalist id="buildingList">
+					<option th:each="row : ${buildinglist}"
+						th:value="${row.getBuildingName()}"
+						th:label="${row.getBuildingName()}" />
 				</datalist>
 			</p>
 			<p>
 				Room Number<br /> <input class="inputField" type="text"
-					th:field="*{roomNumber}" />
+					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
+				<datalist id="rooms">
+					<option th:each="room : ${roomlist}"
+						th:value="${room.getRoomNumber()}" />
+				</datalist>
 			</p>
 			<p>
 				<input type="submit" value="Submit" /> <input type="reset"
