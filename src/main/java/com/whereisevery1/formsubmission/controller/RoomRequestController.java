@@ -16,8 +16,8 @@ import com.whereisevery1.database.model.*;
 @Controller
 public class RoomRequestController {
 
-	@Autowired
-	private CustomerRepository repository;
+	// @Autowired
+	// private CustomerRepository repository;
 
 	Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -32,19 +32,19 @@ public class RoomRequestController {
 	}
 
 	public void buildBuildingList(Model model) {
-		ArrayList<Building> suggestions = new ArrayList<Building>();
-		for (Building b : repository.findAll()) {
-			suggestions.add(b);
-		}
-		model.addAttribute("buildinglist", suggestions);
+		/*
+		 * ArrayList<Building> suggestions = new ArrayList<Building>(); for (Building b
+		 * : repository.findAll()) { suggestions.add(b); }
+		 * model.addAttribute("buildinglist", suggestions);
+		 */
 	}
 
 	public void buildRoomList(Model model, Building b) {
 
 		ArrayList<Room> roomList = new ArrayList<Room>();
-		//System.out.println(b);
+		// System.out.println(b);
 		for (Room r : b.getRooms()) {
-		//	System.out.println(r);
+			// System.out.println(r);
 			roomList.add(r);
 		}
 		model.addAttribute("roomlist", roomList);
@@ -54,33 +54,33 @@ public class RoomRequestController {
 	public String customerSubmit(@ModelAttribute RoomRequest roomRequest, Model model) {
 
 		// model.addAttribute("roomrequest", roomRequest);
-
-		Building foundBuilding = repository.findByBuildingName(roomRequest.getBuildingName());
-		if (foundBuilding == null) {
-			foundBuilding = new Building("No such building found", 666);
-		}
-
-		if (roomRequest.getRoomNumber() == "") {
-			RoomRequest currentBuildingRequest = new RoomRequest();
-			currentBuildingRequest.setBuildingName(roomRequest.getBuildingName());
-			model.addAttribute("roomrequest", currentBuildingRequest);
-			buildBuildingList(model);
-			buildRoomList(model, foundBuilding);
-
-			return "form";
-		} else {
-			model.addAttribute("building", foundBuilding);
-
-			// repository.findByBuildingName(roomRequest.getBuildingName());
-			String info = String.format("Customer Submission: Building = %s, Room Number = %s",
-					roomRequest.getBuildingName(), roomRequest.getRoomNumber());
-
-			// System.out.println(repository.findByBuildingName(roomRequest.getBuildingName()));
-
-			log.info(info);
-
-			return "result";
-		}
-
+		model.addAttribute("building", new Building("Building", 777));
+		// Building foundBuilding =
+		// repository.findByBuildingName(roomRequest.getBuildingName());
+		/*
+		 * if (foundBuilding == null) { foundBuilding = new
+		 * Building("No such building found", 666); }
+		 * 
+		 * if (roomRequest.getRoomNumber() == "") { RoomRequest currentBuildingRequest =
+		 * new RoomRequest();
+		 * currentBuildingRequest.setBuildingName(roomRequest.getBuildingName());
+		 * model.addAttribute("roomrequest", currentBuildingRequest);
+		 * buildBuildingList(model); buildRoomList(model, foundBuilding);
+		 * 
+		 * return "form"; } else { model.addAttribute("building", foundBuilding);
+		 * 
+		 * // repository.findByBuildingName(roomRequest.getBuildingName()); String info
+		 * = String.format("Customer Submission: Building = %s, Room Number = %s",
+		 * roomRequest.getBuildingName(), roomRequest.getRoomNumber());
+		 * 
+		 * //
+		 * System.out.println(repository.findByBuildingName(roomRequest.getBuildingName(
+		 * )));
+		 * 
+		 * log.info(info);
+		 * 
+		 * return "result"; }
+		 */
+		return "result";
 	}
 }
