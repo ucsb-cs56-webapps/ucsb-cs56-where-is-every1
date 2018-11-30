@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.javasampleapproach.formsubmission</groupId>
-	<artifactId>SpringMVCFormSubmission</artifactId>
+	<groupId>org.springframework</groupId>
+	<artifactId>ucsb-where-is-every1</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>SpringMVCFormSubmission</name>
-	<description>SpringMVCFormSubmission</description>
+	<name>ucsb-where-is-every1</name>
+	<description>ucsb-where-is-every1</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.3.RELEASE</version>
+		<version>2.0.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -68,23 +68,23 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			  <plugin>
-	<groupId>com.heroku.sdk</groupId>
-	<artifactId>heroku-maven-plugin</artifactId>
-	<version>2.0.3</version>
-	<configuration>
-          <jdkVersion>1.8</jdkVersion>
-          <!-- Use your own application name -->
-	  <!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
-          <appName>ucsb-cs56-where-is-every1</appName> 
-          <processTypes>
-            <!-- Tell Heroku how to launch your application -->
-            <!-- You might have to remove the ./ in front   -->
-            <web>java $JAVA_OPTS -jar target/gs-spring-boot-0.1.0.jar --server.port=$PORT</web>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.3</version>
+				<configuration>
+					<jdkVersion>1.8</jdkVersion>
+					<!-- Use your own application name -->
+					<!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
+					<appName>ucsb-cs56-where-is-every1</appName>
+					<processTypes>
+						<!-- Tell Heroku how to launch your application -->
+						<!-- You might have to remove the ./ in front -->
+						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar --server.port=$PORT</web>
 
-          </processTypes>
-	</configuration>
-   </plugin>
+					</processTypes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
