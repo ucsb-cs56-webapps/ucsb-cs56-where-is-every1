@@ -42,4 +42,4 @@ hs_err_pid*
 *.ant-targets-build.xml
 
 *~
-/target/
+*/target/*
