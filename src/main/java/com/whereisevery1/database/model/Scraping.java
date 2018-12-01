@@ -22,21 +22,21 @@ import org.json.simple.JSONObject;
  */
 public class Scraping {
 
-	// START -  MUTABLE ATTRIBUTES
+	// START - MUTABLE ATTRIBUTES
 	private static HtmlUnitDriver driver;
-	private static HashMap<String,Building> buildings;
+	private static HashMap<String, Building> buildings;
 	// END - MUTABLE ATTRIBUTES
 
 	// START - IMMUTABLE ATTRIBUTES
-	private static String file = "/src/main/resources/catalog.txt"
+	private static String file = "/src/main/resources/catalog.txt";
 	private static String course_url = "https://my.sa.ucsb.edu/public/curriculum/coursesearch.aspx";
 	private static String courseListXPath = "//*[@id=\"ctl00_pageContent_courseList\"]";
-	private static String courseLevelXPath ="//*[@id=\"ctl00_pageContent_dropDownCourseLevels\"]";
-  private static String searchButtonXPath = "//*[@id=\"ctl00_pageContent_searchButton\"]";
+	private static String courseLevelXPath = "//*[@id=\"ctl00_pageContent_dropDownCourseLevels\"]";
+	private static String searchButtonXPath = "//*[@id=\"ctl00_pageContent_searchButton\"]";
 	private static String courseTableXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr";
 	private static String locationXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[9]";
 	private static String daysXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[7]";
-	private static timesXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[8]";
+	private static String timesXPath="//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[8]";
 	private static String allCourseLevels = "All";
 	private static String nonRooms = "T B A";
 	// END - IMMUTABLE ATTRIBUTES
@@ -52,24 +52,22 @@ public class Scraping {
 	}
 
 	/*
-	*	parameters:
-	*		driver	-- HtmlUnitDriver object for scraping
-	*/
-	public static ArrayList<String> get_subjectArea(HtmlUnitDriver driver){
+	 * parameters: driver -- HtmlUnitDriver object for scraping
+	 */
+	public static ArrayList<String> get_subjectArea(HtmlUnitDriver driver) {
 		Select s = new Select(driver.findElementByXPath(courseListXPath));
 		ArrayList<String> temp = new ArrayList<String>();
 
-		for(WebElement e : s.getOptions())
+		for (WebElement e : s.getOptions())
 			temp.add(e.getText());
 
 		return temp;
 	}
 
 	/*
-	*	parameters:
-	*		driver	-- HtmlUnitDriver object for scraping
-	*		courses	-- ArrayList<String> of courses already
-	*/
+	 * parameters: driver -- HtmlUnitDriver object for scraping courses --
+	 * ArrayList<String> of courses already
+	 */
 	public static void load_times_rooms_days(HtmlUnitDriver driver, ArrayList<String> courses){
 
 		/* TODO: Loop through each course and level
@@ -116,25 +114,25 @@ public class Scraping {
 		}
 	}
 
-	public static void writeJSON(){
+	public static void writeJSON() {
 		JSONObject obj = new JSONObject();
 		obj.put("Name", "Catalog");
 		obj.put("LastScrape", "");
 
 		JSONArray buildingList = new JSONArray();
-		for(Building building : buildings.values()){
+		for (Building building : buildings.values()) {
 			buildingList.put("Building", building);
 
 			JSONArray roomList = new JSONArray();
-			for(Room room: building.getRooms().values()){
+			for (Room room : building.getRooms().values()) {
 				roomList.put("Room", room);
 
 				JSONArray dayList = new JSONArray();
-				for(Day day: room.getTimes().values()){
+				for (Day day : room.getTimes().values()) {
 					dayList.put("Day", day.value());
 
 					JSONArray timeList = new JSONArray();
-					for(Time time: day.getTimes()){
+					for (Time time : day.getTimes()) {
 						timeList.put("Time", time);
 					}
 					obj.put("Time List", timeList);
@@ -149,7 +147,7 @@ public class Scraping {
 		try (FileWriter file = new FileWriter(file)) {
 			file.write(obj.toJSONString());
 
-			//flag
+			// flag
 			System.out.println("Successfully Copied JSON Object to File...");
 			System.out.println("\nJSON Object: " + obj);
 		}
