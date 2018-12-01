@@ -10,6 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /*
  * TODO: - Write the loading into database method
@@ -17,32 +21,34 @@ import org.openqa.selenium.support.ui.Select;
  * 		 - Use the building class and room
  */
 public class Scraping {
-	
+
 	// START -  MUTABLE ATTRIBUTES
 	private static HtmlUnitDriver driver;
 	private static HashMap<String,Building> buildings;
-	// END - MUTABLE ATTRIBUTES	
-
+	// END - MUTABLE ATTRIBUTES
 
 	// START - IMMUTABLE ATTRIBUTES
+	private static String file = "/src/main/resources/catalog.txt"
 	private static String course_url = "https://my.sa.ucsb.edu/public/curriculum/coursesearch.aspx";
 	private static String courseListXPath = "//*[@id=\"ctl00_pageContent_courseList\"]";
 	private static String courseLevelXPath ="//*[@id=\"ctl00_pageContent_dropDownCourseLevels\"]";
-       	private static String searchButtonXPath = "//*[@id=\"ctl00_pageContent_searchButton\"]";
+  private static String searchButtonXPath = "//*[@id=\"ctl00_pageContent_searchButton\"]";
 	private static String courseTableXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr";
 	private static String locationXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[9]";
-	private static String daysXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[7]"; 
+	private static String daysXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[7]";
 	private static timesXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[8]";
-	private static String allCourseLevels = "All";	
+	private static String allCourseLevels = "All";
 	private static String nonRooms = "T B A";
 	// END - IMMUTABLE ATTRIBUTES
-	
+
 	public Scraping() {
 		driver = new HtmlUnitDriver();
 		driver.setJavascriptEnabled(true);
 		driver.get(course_url);
 
 		load_times_rooms_days(driver, get_subjectArea(driver));
+
+		writeJSON();
 	}
 
 	/*
@@ -76,7 +82,7 @@ public class Scraping {
 		// VARIABLE - DELIMITER TO PARSE DAY STRING, RANDOM DELAY FOR SCRAPING
 		String delimiter = "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)";
 		double r = (Math.random() * ((60000 - 4000) + 1)) + 4000;
-		
+
 		for(String c : courses) {
 			//	grabs element id
 			Select course_editbox = new Select(driver.findElementByXPath(courseListXPath));
@@ -108,5 +114,45 @@ public class Scraping {
 			// random delay
 			Thread.sleep((long) r);
 		}
+	}
+
+	public static void writeJSON(){
+		JSONObject obj = new JSONObject();
+		obj.put("Name", "Catalog");
+		obj.put("LastScrape", "");
+
+		JSONArray buildingList = new JSONArray();
+		for(Building building : buildings.values()){
+			buildingList.put("Building", building);
+
+			JSONArray roomList = new JSONArray();
+			for(Room room: building.getRooms().values()){
+				roomList.put("Room", room);
+
+				JSONArray dayList = new JSONArray();
+				for(Day day: room.getTimes().values()){
+					dayList.put("Day", day.value());
+
+					JSONArray timeList = new JSONArray();
+					for(Time time: day.getTimes()){
+						timeList.put("Time", time);
+					}
+					obj.put("Time List", timeList);
+				}
+				obj.put("Day List", dayList);
+			}
+			obj.put("Room List", roomList);
+		}
+		obj.put("Building List", buildingList);
+
+		// try-with-resources statement based on post comment below :)
+		try (FileWriter file = new FileWriter(file)) {
+			file.write(obj.toJSONString());
+
+			//flag
+			System.out.println("Successfully Copied JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+
 	}
 }
