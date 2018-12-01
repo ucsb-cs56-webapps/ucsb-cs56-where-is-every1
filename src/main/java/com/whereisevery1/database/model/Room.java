@@ -3,7 +3,6 @@ package com.whereisevery1.database.model;
 import java.util.HashMap;
 
 import org.springframework.data.annotation.Id;
-import com.whereisevery1.database.model;
 
 public class Room {
 

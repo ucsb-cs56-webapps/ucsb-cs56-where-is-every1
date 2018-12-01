@@ -25,19 +25,21 @@ public class RoomRequestController {
 	public String customerForm(Model model) {
 		if (!model.containsAttribute("roomrequest")) {
 			model.addAttribute("roomrequest", new RoomRequest());
-			buildBuildingList(model);
+			//buildBuildingList(model);
 
 		}
 		return "form";
 	}
 
-	public void buildBuildingList(Model model) {
-		/*
-		 * ArrayList<Building> suggestions = new ArrayList<Building>(); for (Building b
-		 * : repository.findAll()) { suggestions.add(b); }
-		 * model.addAttribute("buildinglist", suggestions);
-		 */
-	}
+//	public void buildBuildingList(Model model) {
+//
+//		ArrayList<Building> suggestions = new ArrayList<Building>();
+//		for (Building b : repository.findAll()) {
+//			suggestions.add(b);
+//		}
+//		model.addAttribute("buildinglist", suggestions);
+//
+//	}
 
 	/*
 	 * public void buildRoomList(Model model, Building b) {
