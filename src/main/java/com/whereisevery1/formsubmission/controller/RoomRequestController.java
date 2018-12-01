@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.whereisevery1.formsubmission.model;
 import com.whereisevery1.formsubmission.model.RoomRequest;
 import com.whereisevery1.database.model.*;
 
