@@ -3,7 +3,7 @@ package com.whereisevery1.database.model;
 import com.whereisevery1.database.model.Building;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Math;
+import java.lang.Math;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -95,7 +95,7 @@ public class Scraping {
 			search_button.click();
 
 			for(int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++){
-				String location = driver.findElement(By.xpath(String.format(locationXPath,i)).getText());
+				String location = driver.findElement(By.xpath(String.format(locationXPath,i))).getText();
 
 				String[] location_room = location.split(delimiter);
 
