@@ -95,7 +95,7 @@ public class Scraping {
 			search_button.click();
 
 			for(int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++){
-				String location = driver.findElement(By.xpath(String.format(locationXPath,i)).getText();
+				String location = driver.findElement(By.xpath(String.format(locationXPath,i)).getText());
 
 				String[] location_room = location.split(delimiter);
 
@@ -105,7 +105,7 @@ public class Scraping {
 
 					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
 							driver.findElement(By.xpath(String.format(daysXPath, i))).toString(),
-							driver.findElement(By.xpath(String.format(timesXPath, i)).toString());
+							driver.findElement(By.xpath(String.format(timesXPath, i)).toString()));
 				}
 			}
 
