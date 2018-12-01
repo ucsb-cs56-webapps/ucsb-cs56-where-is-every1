@@ -94,8 +94,7 @@
 					<processTypes>
 						<!-- Tell Heroku how to launch your application -->
 						<!-- You might have to remove the ./ in front -->
-						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar
-							--server.port=$PORT</web>
+						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar --server.port=$PORT</web>
 
 					</processTypes>
 				</configuration>
