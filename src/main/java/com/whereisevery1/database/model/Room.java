@@ -3,6 +3,7 @@ package com.whereisevery1.database.model;
 import java.util.HashMap;
 
 import org.springframework.data.annotation.Id;
+import org.com.whereisevery1.database.model.Day;
 
 public class Room {
 
