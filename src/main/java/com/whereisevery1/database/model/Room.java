@@ -32,5 +32,6 @@ public class Room {
     		if(!this.times_day.containsKey(day))
 			this.times_day.put(day, new Day(day));
 		this.times_day.get(day).addTimes(times);
+	}
     }
 }
