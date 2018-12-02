@@ -1,0 +1,98 @@
+div.titleArea {
+	position: absolute;
+	top: 10%;
+	left: 30%;
+	
+	margin: auto;
+	text-align: center;
+	padding: 7px;
+	width: 600px;
+	color: black;
+}
+
+.inputArea {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*background-color: #fafbfc;*/
+	margin: auto;
+	text-align: center;
+	padding: 7px;
+	width: 400px;
+	background-color: #fafafa;;
+	border: 5px solid #353432ff;
+	border-opacity: 60%;
+	color: #586069 !important;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	transform: translate(-50%, -50%);
+	/* border-style: green;*/
+}
+
+.navbar-brand {
+	color: #c6c4bc !important;
+}
+
+.navbar {
+	height: 50px;
+	color: #586069 !important;
+}
+
+form {
+	margin-right: 5px;
+	max-width: 100%;
+	border-radius: 5px;
+	font-size: 16px;
+	min-height: 46px;
+	padding: 0px;
+	width: 100%;
+	display: block;
+	margin-top: 0em;
+}
+
+input {
+	border-top-color: rgb(209, 213, 218);
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: rgb(209, 213, 218);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: rgb(209, 213, 218);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: rgb(209, 213, 218);
+	border-left-style: solid;
+	border-left-width: 1px; */
+	box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
+	line-height: 20px;
+	height: 30px;
+	text-rendering: auto;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-writing-mode: horizontal-tb !important;
+	color: #586069 !important;
+}
+
+.inputField {
+	font-size: 16px !important;
+	padding: 1px;
+	text-indent: 5px;
+	color: #586069 !important;
+}
+
+body {
+	background-image: url("../images/background.png");
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	background-color: grey;
+	line-height: 1.5;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}

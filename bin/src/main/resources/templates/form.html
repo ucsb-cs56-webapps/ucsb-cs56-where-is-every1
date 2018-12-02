@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Room Request</title>
+<link href="../static/css/submissionform.css"
+	th:href="@{css/submissionform.css}" rel="stylesheet" type="text/css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="/">WhereIsEvery1?</a>
+
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link"
+				href="html/aboutUs.html">About Us</a></li>
+		</ul>
+	</nav>
+
+	<div class="titleArea">
+		<h1>WhereIsEvery1?</h1>
+			<p>
+				Select a building and a room number to view a schedule of times that the room is unused.
+				If you don't enter a room number, schedules for all rooms in that building will be 
+				displayed.
+			</p>
+	</div>
+	
+	<div class="inputArea">
+		<h1>Search For Classrooms</h1>
+		<form action="#" th:action="@{/}" th:object="${roomrequest}"
+			method="post">
+			<p>
+				Building<br /> <input onblur="this.form.submit()"
+					class="inputField" type="text" maxlength="20"
+					th:field="*{buildingName}" list="buildingList" />
+
+				<datalist id="buildingList">
+					<option th:each="row : ${buildinglist}"
+						th:value="${row.getBuildingName()}"
+						th:label="${row.getBuildingName()}" />
+				</datalist>
+			</p>
+			<p>
+				Room Number<br /> <input class="inputField" type="text"
+					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
+				<datalist id="rooms">
+					<option th:each="room : ${roomlist}"
+						th:value="${room.getRoomNumber()}" />
+				</datalist>
+			</p>
+			<p>
+				<input type="submit" value="Submit" /> <input type="reset"
+					value="Reset" />
+			</p>
+		</form>
+	</div>
+</body>
+</html>

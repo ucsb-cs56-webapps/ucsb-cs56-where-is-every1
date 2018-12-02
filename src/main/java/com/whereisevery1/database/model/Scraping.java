@@ -103,9 +103,9 @@ public class Scraping {
 					if(!buildings.containsKey(location_room[0]))
 						buildings.put(location, new Building(location_room[0]));
 
-					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
+					buildings.get(location_room[0]).addToRoom((location_room.length == 1) ? 0 : Integer.parseInt(location_room[1]),
 							driver.findElement(By.xpath(String.format(daysXPath, i))).toString(),
-							driver.findElement(By.xpath(String.format(timesXPath, i)).toString()));
+							driver.findElement(By.xpath(String.format(timesXPath, i))).toString());
 				}
 			}
 
@@ -121,19 +121,19 @@ public class Scraping {
 
 		JSONArray buildingList = new JSONArray();
 		for (Building building : buildings.values()) {
-			buildingList.put("Building", building);
+			buildingList.add("Building", building);
 
 			JSONArray roomList = new JSONArray();
 			for (Room room : building.getRooms().values()) {
-				roomList.put("Room", room);
+				roomList.add("Room", room);
 
 				JSONArray dayList = new JSONArray();
 				for (Day day : room.getTimes().values()) {
-					dayList.put("Day", day.value());
+					dayList.add("Day", day.value());
 
 					JSONArray timeList = new JSONArray();
 					for (Time time : day.getTimes()) {
-						timeList.put("Time", time);
+						timeList.add("Time", time);
 					}
 					obj.put("Time List", timeList);
 				}
@@ -144,8 +144,8 @@ public class Scraping {
 		obj.put("Building List", buildingList);
 
 		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter(file)) {
-			file.write(obj.toJSONString());
+		try (FileWriter data = new FileWriter(file)) {
+			data.write(obj.toJSONString());
 
 			// flag
 			System.out.println("Successfully Copied JSON Object to File...");
