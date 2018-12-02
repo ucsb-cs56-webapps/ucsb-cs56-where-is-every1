@@ -105,7 +105,7 @@ public class Scraping {
 
 					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
 							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),
-							driver.findElement(By.xpath(String.format(timesXPath, i))).getText();
+							driver.findElement(By.xpath(String.format(timesXPath, i))).getText());
 				}
 			}
 
