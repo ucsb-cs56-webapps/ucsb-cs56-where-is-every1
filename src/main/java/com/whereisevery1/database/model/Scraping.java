@@ -49,10 +49,10 @@ public class Scraping {
 		driver = new HtmlUnitDriver();
 		driver.setJavascriptEnabled(true);
 		driver.get(course_url);
-
+		buildings = new HashMap(String, Building)();
 		load_times_rooms_days(driver, get_subjectArea(driver));
 
-		writeJSON(this);
+	//	writeJSON(this);
 	}
 
 	/*
@@ -72,7 +72,7 @@ public class Scraping {
 	 * parameters: driver -- HtmlUnitDriver object for scraping courses --
 	 * ArrayList<String> of courses already
 	 */
-	public static void load_times_rooms_days(HtmlUnitDriver driver, ArrayList<String> courses){
+	public void load_times_rooms_days(HtmlUnitDriver driver, ArrayList<String> courses){
 
 		/* TODO: Loop through each course and level
 		 * Start with the one subject area
@@ -82,7 +82,8 @@ public class Scraping {
 		*/
 
 		// VARIABLE - DELIMITER TO PARSE DAY STRING, RANDOM DELAY FOR SCRAPING
-		String delimiter = "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)";
+		String delimiter = "[a-zA-z]{0,}[0-9]{0,}\\s*[0-9]{0,}";
+		String splitter = "\\s+";
 		double r = (Math.random() * ((60000 - 4000) + 1)) + 4000;
 
 		for(String c : courses) {
@@ -100,12 +101,11 @@ public class Scraping {
 
 			for(int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++){
 				String location = driver.findElement(By.xpath(String.format(locationXPath,i))).getText();
+				if(location.matches(delimiter){		
+					String[] location_room = location.split(splitter);
 
-				String[] location_room = location.split(delimiter);
-
-				if(location_room[0].compareTo(nonRooms) != 0) {
 					if(!buildings.containsKey(location_room[0]))
-						buildings.put(location, new Building(location_room[0]));
+						buildings.put(location_room[0], new Building(location_room[0]));
 
 					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
 							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),

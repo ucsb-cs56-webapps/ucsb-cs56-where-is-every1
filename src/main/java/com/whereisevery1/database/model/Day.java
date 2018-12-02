@@ -10,6 +10,7 @@ public class Day{
 	
 	public Day(String d) {
 		this.day = d;
+		times = new ArrayList<Time>();
 	}
 	
 	public String getDay() {return this.day;}

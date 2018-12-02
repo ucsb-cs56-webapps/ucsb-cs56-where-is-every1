@@ -14,8 +14,8 @@ public class Room {
 	private int number;
 
 	public Room(int number) {
-		this.times_day = new HashMap<String, Day>();
 		this.number = number;
+		this.times_day = new HashMap<String, Day>();
 	}
 
 	public int getNumber() {
