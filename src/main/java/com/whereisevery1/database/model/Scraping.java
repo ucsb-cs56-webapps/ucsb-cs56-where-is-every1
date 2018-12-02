@@ -118,42 +118,42 @@ public class Scraping {
 	}
 
 	public static void writeJSON() {
-		JSONObject obj = new JSONObject();
-		obj.put("Name", "Catalog");
-		obj.put("LastScrape", "");
-
-		JSONArray buildingList = new JSONArray();
-		for (Building building : buildings.values()) {
-			buildingList.put("Building", building);
-
-			JSONArray roomList = new JSONArray();
-			for (Room room : building.getRooms().values()) {
-				roomList.put("Room", room);
-
-				JSONArray dayList = new JSONArray();
-				for (Day day : room.getTimes().values()) {
-					dayList.put("Day", day.value());
-
-					JSONArray timeList = new JSONArray();
-					for (Time time : day.getTimes()) {
-						timeList.put("Time", time);
-					}
-					obj.put("Time List", timeList);
-				}
-				obj.put("Day List", dayList);
-			}
-			obj.put("Room List", roomList);
-		}
-		obj.put("Building List", buildingList);
-
-		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter(file)) {
-			file.write(obj.toJSONString());
-
-			// flag
-			System.out.println("Successfully Copied JSON Object to File...");
-			System.out.println("\nJSON Object: " + obj);
-		}
+//		JSONObject obj = new JSONObject();
+//		obj.put("Name", "Catalog");
+//		obj.put("LastScrape", "");
+//
+//		JSONArray buildingList = new JSONArray();
+//		for (Building building : buildings.values()) {
+//			buildingList.put("Building", building);
+//
+//			JSONArray roomList = new JSONArray();
+//			for (Room room : building.getRooms().values()) {
+//				roomList.put("Room", room);
+//
+//				JSONArray dayList = new JSONArray();
+//				for (Day day : room.getTimes().values()) {
+//					dayList.put("Day", day.value());
+//
+//					JSONArray timeList = new JSONArray();
+//					for (Time time : day.getTimes()) {
+//						timeList.put("Time", time);
+//					}
+//					obj.put("Time List", timeList);
+//				}
+//				obj.put("Day List", dayList);
+//			}
+//			obj.put("Room List", roomList);
+//		}
+//		obj.put("Building List", buildingList);
+//
+//		// try-with-resources statement based on post comment below :)
+//		try (FileWriter file = new FileWriter(file)) {
+//			file.write(obj.toJSONString());
+//
+//			// flag
+//			System.out.println("Successfully Copied JSON Object to File...");
+//			System.out.println("\nJSON Object: " + obj);
+//		}
 
 	}
 }
