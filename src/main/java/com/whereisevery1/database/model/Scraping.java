@@ -1,5 +1,8 @@
 package com.whereisevery1.database.model;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.whereisevery1.database.model.Building;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
@@ -48,7 +52,7 @@ public class Scraping {
 
 		load_times_rooms_days(driver, get_subjectArea(driver));
 
-		writeJSON();
+		writeJSON(this);
 	}
 
 	/*
@@ -117,7 +121,30 @@ public class Scraping {
 		}
 	}
 
-	public static void writeJSON() {
+	public static void writeJSON(Scraping scrap) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			// Convert object to JSON string and save into a file directly
+			mapper.writeValue(new File(file), scrap);
+
+			// Convert object to JSON string
+			String jsonInString = mapper.writeValueAsString(scrap);
+			System.out.println(jsonInString);
+
+			// Convert object to JSON string and pretty print
+			jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(scrap);
+			System.out.println(jsonInString);
+
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 //		JSONObject obj = new JSONObject();
 //		obj.put("Name", "Catalog");
 //		obj.put("LastScrape", "");
