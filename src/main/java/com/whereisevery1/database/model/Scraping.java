@@ -49,7 +49,7 @@ public class Scraping {
 		driver = new HtmlUnitDriver();
 		driver.setJavascriptEnabled(true);
 		driver.get(course_url);
-		buildings = new HashMap(String, Building)();
+		buildings = new HashMap<String, Building>();
 		load_times_rooms_days(driver, get_subjectArea(driver));
 
 	//	writeJSON(this);
@@ -101,7 +101,7 @@ public class Scraping {
 
 			for(int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++){
 				String location = driver.findElement(By.xpath(String.format(locationXPath,i))).getText();
-				if(location.matches(delimiter){		
+				if(location.matches(delimiter)){		
 					String[] location_room = location.split(splitter);
 
 					if(!buildings.containsKey(location_room[0]))
