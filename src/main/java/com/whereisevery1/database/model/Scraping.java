@@ -87,7 +87,7 @@ public class Scraping {
 			course_editbox.selectByVisibleText(c);
 
 			//	grabs course level and changes to ALL
-			Select lvl_editbox = new Select(driver.findElementByXPath());
+			Select lvl_editbox = new Select(driver.findElementByXPath(courseLevelXPath));
 			lvl_editbox.selectByVisibleText(allCourseLevels);
 
 			//	grabs element id and clicks
@@ -104,13 +104,16 @@ public class Scraping {
 						buildings.put(location, new Building(location_room[0]));
 
 					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
-							driver.findElement(By.xpath(String.format(daysXPath, i))).toString(),
-							driver.findElement(By.xpath(String.format(timesXPath, i)).toString()));
+							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),
+							driver.findElement(By.xpath(String.format(timesXPath, i))).getText();
 				}
 			}
 
 			// random delay
-			Thread.sleep((long) r);
+			try{ Thread.sleep((long) r);}
+			catch(Exception e) {
+				//pass
+			}
 		}
 	}
 
