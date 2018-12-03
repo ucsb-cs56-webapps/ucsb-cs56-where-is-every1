@@ -17,11 +17,12 @@ public class SpringRoomRequestSubmissionApplication {
 
 	public static void main(String[] args) {
 		
-		// If you provide an argument when running the code, it will build the json database.
+		// If you provide an argument when running the code, it will build the json database. DOESN'T WORK ON HEROKU.
 		if (args.length > 0) {
-			DatabaseCreator d = new DatabaseCreator();
-			d.runScrape();
-			d.writeToJSON();
+			//DatabaseCreator d = new DatabaseCreator();
+			//d.runScrape();
+			//d.writeToJSON();
+			SpringApplication.run(SpringRoomRequestSubmissionApplication.class, args);		
 		}
 		else {
 			// Start the spring application if we're not building the database.
