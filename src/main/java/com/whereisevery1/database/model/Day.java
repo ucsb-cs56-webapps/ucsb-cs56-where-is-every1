@@ -37,7 +37,9 @@ public class Day {
 	public void addTimes(String t) {
 		try {
 			times.add(new Time(t));
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
+			//Pass
 		}
 	}
 }

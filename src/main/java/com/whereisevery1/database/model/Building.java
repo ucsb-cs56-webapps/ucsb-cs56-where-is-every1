@@ -7,7 +7,7 @@ import java.util.HashMap;
 //import lombok.Data;
 
 public class Building {
-	private HashMap<Integer, Room> rooms;
+	private HashMap<String, Room> rooms;
 	private String name;
 
 	public Building() {
@@ -15,22 +15,22 @@ public class Building {
 
 	public Building(String name) {
 		this.name = name;
-		rooms = new HashMap<Integer, Room>();
+		rooms = new HashMap<String, Room>();
 	}
 
 	public String getName() {
 		return this.name;
 	}
 
-	public HashMap<Integer, Room> getRooms() {
+	public HashMap<String, Room> getRooms() {
 		return rooms;
 	}
 
-	public ArrayList<Integer> getRoomNumbers() {
-		return new ArrayList<Integer>(rooms.keySet());
+	public ArrayList<String> getRoomNumbers() {
+		return new ArrayList<String>(rooms.keySet());
 	}
 
-	public void setRooms(HashMap<Integer, Room> rooms) {
+	public void setRooms(HashMap<String, Room> rooms) {
 		this.rooms = rooms;
 	}
 
@@ -38,11 +38,11 @@ public class Building {
 		this.name = name;
 	}
 
-	public Room getBySpecificNumber(int number) {
+	public Room getBySpecificNumber(String number) {
 		return rooms.get(number);
 	}
 
-	public void addToRoom(int roomNumber, String dates, String times) {
+	public void addToRoom(String roomNumber, String dates, String times) {
 		if (!this.rooms.containsKey(roomNumber))
 			rooms.put(roomNumber, new Room(roomNumber));
 

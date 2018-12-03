@@ -12,17 +12,17 @@ public class Room {
 	// public long id;
 
 	private HashMap<String, Day> times;
-	private int number;
+	private String number;
 
 	public Room() {
 	}
 
-	public Room(int number) {
+	public Room(String number) {
 		this.number = number;
 		this.times = new HashMap<String, Day>();
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
@@ -30,7 +30,7 @@ public class Room {
 		this.times = times;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 

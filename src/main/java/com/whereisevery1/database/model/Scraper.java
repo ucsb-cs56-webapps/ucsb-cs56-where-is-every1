@@ -4,6 +4,8 @@ import com.whereisevery1.database.model.Building;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.lang.Math;
+import java.util.Arrays;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -32,7 +34,6 @@ public class Scraper {
 	private final static String daysXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[7]";
 	private final static String timesXPath = "//*[@id=\"aspnetForm\"]/table/tbody/tr[3]/td/div/center/table/tbody/tr[%d]/td[8]";
 	private final static String allCourseLevels = "All";
-//	private final static String nonRooms = "T B A";
 	// END - IMMUTABLE ATTRIBUTES
 
 	public Scraper() {
@@ -67,18 +68,19 @@ public class Scraper {
 
 		/*
 		 * TODO: Loop through each course and level Start with the one subject area Then
-		 * move on to all subject areas and finally to all course levels add sleep()
+
+
 		 * between courses
 		 */
 
 		// VARIABLE - DELIMITER TO PARSE DAY STRING, RANDOM DELAY FOR SCRAPING
-		String delimiter = "[a-zA-z]{0,}[0-9]{0,}\\s*[0-9]{0,}";
+		List<String> illegalRoomNames = Arrays.asList(new String [] {"ONLINE", "T B A","NO ROOM"});
+		String delimiterGC = "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)";
+		String delimiterSC = "[a-zA-Z]+\\s[0-9]+.|[0-9]+\\s[0-9]+";
 		String splitter = "\\s+";
 		double r = (Math.random() * ((5000))) + 4000;
 
 		for (String c : courses) {
-			// for (int m = 0; m <= 1; m++) {
-			// String c = courses.get(m);
 			// grabs element id
 			Select course_editbox = new Select(driver.findElementByXPath(courseListXPath));
 			course_editbox.selectByVisibleText(c);
@@ -93,14 +95,22 @@ public class Scraper {
 
 			for (int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++) {
 				String location = driver.findElement(By.xpath(String.format(locationXPath, i))).getText();
-				if (location.matches(delimiter)) {
-					String[] location_room = location.split(splitter);
+				if (!illegalRoomNames.contains(place)) {
+					String[] location_room;
+					
+					if(location.toUpperCase().contains("ENGR"))
+						location_room = new String [] {"ENGR2",location.substring(location.length() - 4)};
+					else if(location.matches(delimiterSC))
+						location_room = location.split(splitter);
+					else
+						location_room = location.split(delimiterGC);
+
 
 					if (!buildings.containsKey(location_room[0]))
 						buildings.put(location_room[0], new Building(location_room[0]));
 
 					buildings.get(location_room[0]).addToRoom(
-							(location_room.length == 1) ? 0 : Integer.parseInt(location_room[1]),
+							(location_room.length == 1) ? "0" : location_room[1],
 							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),
 							driver.findElement(By.xpath(String.format(timesXPath, i))).getText());
 				}
