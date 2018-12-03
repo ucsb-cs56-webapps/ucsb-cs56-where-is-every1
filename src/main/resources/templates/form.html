@@ -43,8 +43,8 @@
 
 				<datalist id="buildingList">
 					<option th:each="row : ${buildinglist}"
-						th:value="${row.getBuildingName()}"
-						th:label="${row.getBuildingName()}" />
+						th:value="${row}"
+						th:label="${row}" />
 				</datalist>
 			</p>
 			<p>
@@ -52,7 +52,7 @@
 					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
 				<datalist id="rooms">
 					<option th:each="room : ${roomlist}"
-						th:value="${room.getRoomNumber()}" />
+						th:value="${room}" />
 				</datalist>
 			</p>
 			<p>

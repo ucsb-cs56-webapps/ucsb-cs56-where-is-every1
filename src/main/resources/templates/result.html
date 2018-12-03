@@ -9,7 +9,8 @@
 <body>
 	<div class="inputArea">
 		<h1>Result</h1>
-		<p th:text="'Building: ' + ${building.getName()}" />
+		<p
+			th:text="'Building: ' +  ${roomrequest.getBuildingName()} + ${day.getTimes().toString()}" />
 		<!-- <p th:text="'roomNumber: ' + ${building.roomNumber}" /> -->
 		<a href="/">Search for another room</a>
 	</div>

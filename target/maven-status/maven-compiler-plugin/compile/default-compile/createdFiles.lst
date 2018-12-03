@@ -5,4 +5,3 @@ com/whereisevery1/formsubmission/controller/RoomRequestController.class
 com/whereisevery1/formsubmission/SpringRoomRequestSubmissionApplication.class
 com/whereisevery1/database/model/Room.class
 com/whereisevery1/formsubmission/model/RoomRequest.class
-com/whereisevery1/database/model/Scraping.class
