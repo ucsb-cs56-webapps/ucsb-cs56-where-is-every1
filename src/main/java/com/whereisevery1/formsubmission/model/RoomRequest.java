@@ -4,6 +4,7 @@ public class RoomRequest {
 
 	private String roomNumber;
 	private String buildingName;
+	private String day;
 
 	public String getBuildingName() {
 		return buildingName;
@@ -19,5 +20,13 @@ public class RoomRequest {
 
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
+	}
+	
+	public void setDay(String day) {
+		this.day = day;
+	}
+	
+	public String getDay() {
+		return this.day;
 	}
 }

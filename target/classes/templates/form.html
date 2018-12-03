@@ -24,7 +24,7 @@
 		</ul>
 	</nav>
 
-	
+
 	<div class="inputArea">
 		<div class="titleArea">
 			<h1>WhereIsEvery1?</h1>
@@ -41,8 +41,7 @@
 					th:field="*{buildingName}" list="buildingList" />
 
 				<datalist id="buildingList">
-					<option th:each="row : ${buildinglist}"
-						th:value="${row}"
+					<option th:each="row : ${buildinglist}" th:value="${row}"
 						th:label="${row}" />
 				</datalist>
 			</p>
@@ -50,8 +49,22 @@
 				Room Number<br /> <input class="inputField" type="text"
 					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
 				<datalist id="rooms">
-					<option th:each="room : ${roomlist}"
-						th:value="${room}" />
+					<option th:each="room : ${roomlist}" th:value="${room}" />
+				</datalist>
+			</p>
+			<p>
+				Day (Default: today)<br /> <input class="inputField" type="text" maxlength="20"
+					th:field="*{day}" list="dayList" />
+
+				<datalist id="dayList">
+					<option selected value="Today"/>
+					<option value="M"/>
+					<option value="T"/>
+					<option value="W"/>
+					<option value="R"/>
+					<option value="F"/>
+					<option value="S"/>
+					<option value="SU"/>
 				</datalist>
 			</p>
 			<p>
