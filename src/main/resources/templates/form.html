@@ -32,8 +32,9 @@
 				times that the room is unused. If you don't enter a room number,
 				schedules for all rooms in that building will be displayed.</p>
 		</div>
-		<h1>Search For Classrooms</h1>
-		<form action="#" autocomplete="off" th:action="@{/}" th:object="${roomrequest}"
+		<div class = "searchArea">
+			<h1>Search For Classrooms</h1>
+			<form action="#" autocomplete="off" th:action="@{/}" th:object="${roomrequest}"
 			method="post">
 			<p>
 				Building<br /> <input onblur="this.form.submit()"
@@ -71,6 +72,7 @@
 				<input type="submit" value="Submit" />
 			</p>
 		</form>
+		</div>
 	</div>
 </body>
 </html>

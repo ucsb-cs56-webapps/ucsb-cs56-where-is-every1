@@ -1,32 +1,30 @@
 div.titleArea {
-	position: absolute;
-	top: -50%;
-	left: -25%;
-	margin: auto;
-	text-align: center;
-	padding: 7px;
-	width: 600px;
-	/*color: black;*/
+  position: absolute;
+  padding: 7px;
+  width: 500px;
+  color: black;
 }
-
+div.searchArea{
+  position: absolute;
+  width: 500px;
+  margin-top : 150px;
+  background-color: #fafafa;
+  
+  border: 5px solid #353432ff;
+  border-opacity: 60%;
+  color: #586069 !important;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* border-style: green;*/
+}
 .inputArea {
-	position: absolute;
-	top: 60%;
-	left: 50%;
-	/*background-color: #fafbfc;*/
-	margin: auto;
-	text-align: center;
-	padding: 7px;
-	width: 400px;
-	background-color: #fafafa;;
-	border: 5px solid #353432ff;
-	border-opacity: 60%;
-	color: #586069 !important;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	transform: translate(-50%, -50%);
-	/* border-style: green;*/
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    /*background-color: #fafbfc;*/
+    margin: auto;
+    text-align: center;
 }
 
 .navbar-brand {
@@ -88,10 +86,6 @@ input {
 
 body {
 	background-image: url("../images/background.png");
-	background-origin: content-box;
-	background-attachment: fixed;
-	background-position: bottom 20% right 100%;
-
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
 		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	background-color: grey;

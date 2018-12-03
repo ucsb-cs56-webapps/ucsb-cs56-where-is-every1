@@ -29,7 +29,7 @@ public class DatabaseCreator {
 
 		try {
 			// Convert object to JSON string and save into a file directly
-			mapper.writeValue(new File("../src/main/resources/catalog.json"), data);
+			mapper.writeValue(new File("catalog.json"), data);
 
 			// Convert object to JSON string
 			// String jsonInString =
