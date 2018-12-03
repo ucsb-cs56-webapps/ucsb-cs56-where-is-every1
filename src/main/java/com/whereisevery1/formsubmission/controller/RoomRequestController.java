@@ -103,31 +103,30 @@ public class RoomRequestController {
 				HashMap<String, Day> dayMap = buildings.getBuildings().get(roomRequest.getBuildingName()).getRooms()
 						.get(Integer.parseInt(roomRequest.getRoomNumber())).getTimes();
 
-//				String day = LocalDateTime.now(ZoneId.of("America/Los_Angeles")).getDayOfWeek().toString();
-//				switch (day) {
-//				case "SUNDAY":
-//					day = "SU";
-//					break;
-//				case "MONDAY":
-//					day = "M";
-//					break;
-//				case "TUESDAY":
-//					day = "T";
-//					break;
-//				case "WEDNESDAY":
-//					day = "W";
-//					break;
-//				case "THURSDAY":
-//					day = "R";
-//					break;
-//				case "FRIDAY":
-//					day = "F";
-//					break;
-//				case "SATURDAY":
-//					day = "S";
-//					break;
-//				}
-				String day = "W";
+				String day = LocalDateTime.now(ZoneId.of("America/Los_Angeles")).getDayOfWeek().toString();
+				switch (day) {
+				case "SUNDAY":
+					day = "SU";
+					break;
+				case "MONDAY":
+					day = "M";
+					break;
+				case "TUESDAY":
+					day = "T";
+					break;
+				case "WEDNESDAY":
+					day = "W";
+					break;
+				case "THURSDAY":
+					day = "R";
+					break;
+				case "FRIDAY":
+					day = "F";
+					break;
+				case "SATURDAY":
+					day = "S";
+					break;
+				}
 
 				if (dayMap.get(day) == null) {
 					return "freeRoomResult";
