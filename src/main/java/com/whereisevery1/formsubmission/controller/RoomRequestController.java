@@ -85,7 +85,7 @@ public class RoomRequestController {
 
 		// model.addAttribute("roomrequest", roomRequest);
 
-		model.addAttribute("", new Building("Building"));
+		//model.addAttribute("", new Building("Building"));
 		// Building foundBuilding =
 		// repository.findByBuildingName(roomRequest.getBuildingName());
 
