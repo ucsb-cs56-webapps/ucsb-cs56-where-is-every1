@@ -94,8 +94,8 @@ public class RoomRequestController {
 
 	/*
 	 * TODO: Rewrite the page to not have to reload on building list losing focus.
-	 * It's annoying, and probably should be done in javascript.
-	 * Also, move most of this logic into its own set of classes.
+	 * It's annoying, and probably should be done in javascript. Also, move most of
+	 * this logic into its own set of classes.
 	 */
 	// If a room number was provided, then display the results of the database
 	// query. If only a building was provided,
