@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 //import org.springframework.data.annotation.Id;
 import com.whereisevery1.database.model.Day;
-import lombok.Data;
+//import lombok.Data;
 
 public class Room {
 

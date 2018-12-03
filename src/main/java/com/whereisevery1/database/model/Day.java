@@ -3,7 +3,7 @@ package com.whereisevery1.database.model;
 import java.util.ArrayList;
 
 import com.whereisevery1.database.model.Time;
-import lombok.Data;
+//import lombok.Data;
 
 public class Day {
 	private String day;

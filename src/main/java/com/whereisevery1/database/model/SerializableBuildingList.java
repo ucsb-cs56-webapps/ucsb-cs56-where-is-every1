@@ -3,7 +3,7 @@ package com.whereisevery1.database.model;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Data;
+//import lombok.Data;
 
 @JsonSerialize
 public class SerializableBuildingList {

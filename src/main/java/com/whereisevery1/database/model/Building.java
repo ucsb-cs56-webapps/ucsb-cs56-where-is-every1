@@ -4,14 +4,9 @@ import com.whereisevery1.database.model.Room;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//import org.springframework.data.annotation.Id;
-import lombok.Data;
+//import lombok.Data;
 
 public class Building {
-
-	// @Id
-	// public String id;
-
 	private HashMap<Integer, Room> rooms;
 	private String name;
 

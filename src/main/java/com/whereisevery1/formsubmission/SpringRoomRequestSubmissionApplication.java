@@ -17,22 +17,15 @@ public class SpringRoomRequestSubmissionApplication {
 
 	public static void main(String[] args) {
 		
-		//SpringApplication.run(SpringRoomRequestSubmissionApplication.class, args);
-
-
-		// DatabaseCreator d = new DatabaseCreator();
-		// d.runScrape();
-		// d.writeToJSON();
-
-		// HashMap<String, Building> buildings = new HashMap<String, Building>();
-		// Building b = new Building("HFH");
-		// buildings.put("HFH", b);
-		// SerializableBuildingList l = new SerializableBuildingList(buildings);
-		// d.setData(l);
-		// d.runScrape();
-		// Scraping scraper = new Scraping();
-
-		SpringApplication.run(SpringRoomRequestSubmissionApplication.class, args);
-
+		// If you provide an argument when running the code, it will build the json database.
+		if (args.length > 0) {
+			DatabaseCreator d = new DatabaseCreator();
+			d.runScrape();
+			d.writeToJSON();
+		}
+		else {
+			// Start the spring application if we're not building the database.
+			SpringApplication.run(SpringRoomRequestSubmissionApplication.class, args);			
+		}
 	}
 }

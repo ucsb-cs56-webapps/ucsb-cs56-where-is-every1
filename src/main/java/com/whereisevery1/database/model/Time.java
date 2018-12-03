@@ -8,12 +8,11 @@ public class Time {
 	private int end;
 
 	// START - IMMUTABLE ATTRIBUTES
-	private static String originalTimeFormat = "hh:mma";
-	private static String militaryFormat = "HHmm";
+	private final static String originalTimeFormat = "hh:mma";
+	private final static String militaryFormat = "HHmm";
 	// END - IMMUTABLE ATTRIBUTES
 
 	public Time() {
-
 	}
 
 	public Time(String time) throws Exception {
@@ -42,7 +41,7 @@ public class Time {
 	public int getEnd() {
 		return this.end;
 	}
-	
+
 	public String toString() {
 		return "\nClass starts at: " + start + " Ends at " + end;
 	}

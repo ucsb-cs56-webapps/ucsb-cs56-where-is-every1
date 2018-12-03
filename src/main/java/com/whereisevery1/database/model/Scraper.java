@@ -1,8 +1,5 @@
 package com.whereisevery1.database.model;
 
-//import com.fasterxml.jackson.core.JsonGenerationException;
-//import com.fasterxml.jackson.databind.JsonMappingException;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.whereisevery1.database.model.Building;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,12 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
-
-//import java.io.File;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
 
 /*
  * TODO: - Write the loading into database method
@@ -32,7 +23,6 @@ public class Scraper {
 	// END - MUTABLE ATTRIBUTES
 
 	// START - IMMUTABLE ATTRIBUTES
-//	private final static String file = "catalog.txt";
 	private final static String course_url = "https://my.sa.ucsb.edu/public/curriculum/coursesearch.aspx";
 	private final static String courseListXPath = "//*[@id=\"ctl00_pageContent_courseList\"]";
 	private final static String courseLevelXPath = "//*[@id=\"ctl00_pageContent_dropDownCourseLevels\"]";
@@ -46,13 +36,6 @@ public class Scraper {
 	// END - IMMUTABLE ATTRIBUTES
 
 	public Scraper() {
-//		driver = new HtmlUnitDriver();
-//		driver.setJavascriptEnabled(true);
-//		driver.get(course_url);
-//		buildings = new HashMap<String, Building>();
-//		load_times_rooms_days(driver, get_subjectArea(driver));
-//
-//		//writeJSON(this);
 	}
 
 	public static HashMap<String, Building> scrapeUCSB() {

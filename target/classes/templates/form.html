@@ -53,19 +53,19 @@
 				</datalist>
 			</p>
 			<p>
-				Day (Default: today)<br /> <input class="inputField" type="text" maxlength="20"
-					th:field="*{day}" list="dayList" />
+				<!-- 				Day (Default: today)<br /> <input class="inputField" type="text" maxlength="20" -->
+				<!-- 					th:field="*{day}" list="dayList" /> -->
 
-				<datalist id="dayList">
-					<option selected value="Today"/>
-					<option value="M"/>
-					<option value="T"/>
-					<option value="W"/>
-					<option value="R"/>
-					<option value="F"/>
-					<option value="S"/>
-					<option value="SU"/>
-				</datalist>
+				<select th:field="*{day}" id="dayList">
+					<option selected value="Today">Today</option>
+					<option value="M">Monday</option>
+					<option value="T">Tuesday</option>
+					<option value="W">Wednesday</option>
+					<option value="R">Thursday</option>
+					<option value="F">Friday</option>
+					<option value="S">Saturday</option>
+					<option value="SU">Sunday</option>
+				</select>
 			</p>
 			<p>
 				<input type="submit" value="Submit" /> <input type="reset"
