@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.springframework</groupId>
-	<artifactId>ucsb-where-is-every1</artifactId>
+	<groupId>com.javasampleapproach.formsubmission</groupId>
+	<artifactId>SpringMVCFormSubmission</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>ucsb-where-is-every1</name>
-	<description>ucsb-where-is-every1</description>
+	<name>SpringMVCFormSubmission</name>
+	<description>SpringMVCFormSubmission</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
+		<version>1.4.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -26,19 +26,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.4</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -70,22 +57,8 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>htmlunit-driver</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			</dependency>
-
 	</dependencies>
+
 
 
 
@@ -94,24 +67,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>2.0.3</version>
-				<configuration>
-					<jdkVersion>1.8</jdkVersion>
-					<!-- Use your own application name -->
-					<!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
-					<appName>ucsb-cs56-where-is-every1</appName>
-					<processTypes>
-						<!-- Tell Heroku how to launch your application -->
-						<!-- You might have to remove the ./ in front -->
-						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar
-							--server.port=$PORT</web>
-
-					</processTypes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
