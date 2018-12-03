@@ -108,11 +108,17 @@ public class Scraping {
 					if (!buildings.containsKey(location_room[0]))
 						buildings.put(location, new Building(location_room[0]));
 
+<<<<<<< HEAD
 					buildings.get(location_room[0]).addToRoom(
 							(location_room.length == 1) ? 0 : Integer.parseInt(location_room[1]),
 							driver.findElement(By.xpath(String.format(daysXPath, i))).toString(),
 							driver.findElement(By.xpath(String.format(timesXPath, i))).toString());
 
+=======
+					buildings.get(location_room[0]).addToRoom((location_room.length == 1)? 0 : Integer.parseInt(location_room[1]),
+							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),
+							driver.findElement(By.xpath(String.format(timesXPath, i))).getText());
+>>>>>>> da34c8a6be82593db55c60f3ff042b81321cbf15
 				}
 			}
 
