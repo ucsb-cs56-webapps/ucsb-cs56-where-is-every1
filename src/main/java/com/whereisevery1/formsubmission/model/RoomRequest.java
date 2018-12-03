@@ -6,6 +6,12 @@ public class RoomRequest {
 	private String buildingName;
 	private String day;
 
+	public void toUpper() {
+		this.roomNumber = roomNumber.toUpperCase();
+		this.buildingName = buildingName.toUpperCase();
+		this.day = day.toUpperCase();
+	}
+
 	public String getBuildingName() {
 		return buildingName;
 	}
@@ -21,11 +27,11 @@ public class RoomRequest {
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
-	
+
 	public void setDay(String day) {
 		this.day = day;
 	}
-	
+
 	public String getDay() {
 		return this.day;
 	}

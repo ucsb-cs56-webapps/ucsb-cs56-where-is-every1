@@ -74,10 +74,11 @@ public class Scraper {
 		 */
 
 		// VARIABLE - DELIMITER TO PARSE DAY STRING, RANDOM DELAY FOR SCRAPING
-		List<String> illegalRoomNames = Arrays.asList(new String [] {"ONLINE", "T B A","NO ROOM"});
+		List<String> illegalRoomNames = Arrays.asList(new String [] {"ONLINE", "ON LINE", "T B A","NO ROOM", "TBA"});
 		String delimiterGC = "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)";
 		String delimiterSC = "[a-zA-Z]+\\s[0-9]+.|[0-9]+\\s[0-9]+";
 		String splitter = "\\s+";
+		String engrCase = "ENGR";
 
 		for (String c : courses) {
 			double r = (Math.random() * ((3000))) + 3000;
@@ -98,7 +99,7 @@ public class Scraper {
 				if (!illegalRoomNames.contains(location)) {
 					String[] location_room;
 					
-					if(location.toUpperCase().contains("ENGR"))
+					if(location.toUpperCase().contains(engrCase))
 						location_room = new String [] {"ENGR2",location.substring(location.length() - 4)};
 					else if(location.matches(delimiterSC))
 						location_room = location.split(splitter);
@@ -110,7 +111,7 @@ public class Scraper {
 						buildings.put(location_room[0], new Building(location_room[0]));
 
 					buildings.get(location_room[0]).addToRoom(
-							(location_room.length == 1) ? "0" : location_room[1],
+							(location_room.length == 1) ? "N/A" : location_room[1],
 							driver.findElement(By.xpath(String.format(daysXPath, i))).getText(),
 							driver.findElement(By.xpath(String.format(timesXPath, i))).getText());
 				}

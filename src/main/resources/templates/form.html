@@ -33,7 +33,7 @@
 				schedules for all rooms in that building will be displayed.</p>
 		</div>
 		<h1>Search For Classrooms</h1>
-		<form action="#" th:action="@{/}" th:object="${roomrequest}"
+		<form action="#" autocomplete="off" th:action="@{/}" th:object="${roomrequest}"
 			method="post">
 			<p>
 				Building<br /> <input onblur="this.form.submit()"
@@ -68,8 +68,7 @@
 				</select>
 			</p>
 			<p>
-				<input type="submit" value="Submit" /> <input type="reset"
-					value="Reset" />
+				<input type="submit" value="Submit" />
 			</p>
 		</form>
 	</div>

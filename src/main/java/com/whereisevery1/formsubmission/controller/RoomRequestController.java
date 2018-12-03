@@ -32,7 +32,6 @@ public class RoomRequestController {
 	// live in resources.
 	public static final String jsonLocation = "target/classes/catalog.json";
 
-	// Logger log = LoggerFactory.getLogger(this.getClass());
 	SerializableBuildingList buildings;
 
 	// This request mapping provides the home page.
@@ -62,7 +61,7 @@ public class RoomRequestController {
 			try {
 				buildings = mapper.readValue(new File(jsonLocation), SerializableBuildingList.class);
 				model.addAttribute("buildinglist", buildings.getBuildings().keySet());
-				// System.out.println(buildings.getBuildings().keySet());
+
 			} catch (JsonGenerationException e) {
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
@@ -104,9 +103,11 @@ public class RoomRequestController {
 	public String customerSubmit(@ModelAttribute RoomRequest roomRequest, Model model) {
 
 		// The room request is needed for both a return to form and a move to result*.
+		roomRequest.toUpper();
 		model.addAttribute("roomrequest", roomRequest);
 
 		if (roomRequest.getBuildingName().equals("")) {
+			buildBuildingList(model);
 			return "form";
 		}
 
@@ -162,7 +163,6 @@ public class RoomRequestController {
 							day = "S";
 							break;
 						default:
-							// day = roomRequest.getDay();
 							break;
 						}
 					}

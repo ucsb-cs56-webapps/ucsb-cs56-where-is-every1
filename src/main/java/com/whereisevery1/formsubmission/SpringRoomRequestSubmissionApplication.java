@@ -5,10 +5,8 @@ package com.whereisevery1.formsubmission;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//import com.whereisevery1.database.model.Building;
+
 import com.whereisevery1.database.model.DatabaseCreator;
-//import com.whereisevery1.database.model.Scraping;
-//import com.whereisevery1.database.model.SerializableBuildingList;
 
 @SpringBootApplication
 public class SpringRoomRequestSubmissionApplication {
