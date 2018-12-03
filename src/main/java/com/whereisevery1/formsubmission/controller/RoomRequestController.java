@@ -120,8 +120,6 @@ public class RoomRequestController {
 				return "form";
 			} else {
 
-				// model.addAttribute("roomrequest", roomRequest);
-
 				// Check the input for validity.
 				if (buildings.getBuildings() == null
 						|| buildings.getBuildings().get(roomRequest.getBuildingName()) == null
@@ -132,13 +130,6 @@ public class RoomRequestController {
 				} else {
 					// The user has entered the form with a building and a room, so now we have to
 					// find all the mappings of the room based on day and time.
-
-					try {
-						Integer.parseInt(roomRequest.getRoomNumber());
-					} catch (NumberFormatException e) {
-						return "badInput";
-					}
-
 					HashMap<String, Day> dayMap = buildings.getBuildings().get(roomRequest.getBuildingName()).getRooms()
 							.get(roomRequest.getRoomNumber()).getTimes();
 
