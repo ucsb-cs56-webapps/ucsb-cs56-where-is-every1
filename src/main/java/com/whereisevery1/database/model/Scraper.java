@@ -78,9 +78,9 @@ public class Scraper {
 		String delimiterGC = "(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)";
 		String delimiterSC = "[a-zA-Z]+\\s[0-9]+.|[0-9]+\\s[0-9]+";
 		String splitter = "\\s+";
-		double r = (Math.random() * ((5000))) + 4000;
 
 		for (String c : courses) {
+			double r = (Math.random() * ((3000))) + 3000;
 			// grabs element id
 			Select course_editbox = new Select(driver.findElementByXPath(courseListXPath));
 			course_editbox.selectByVisibleText(c);
@@ -95,7 +95,7 @@ public class Scraper {
 
 			for (int i = 1; i <= driver.findElements(By.xpath(courseTableXPath)).size(); i++) {
 				String location = driver.findElement(By.xpath(String.format(locationXPath, i))).getText();
-				if (!illegalRoomNames.contains(place)) {
+				if (!illegalRoomNames.contains(location)) {
 					String[] location_room;
 					
 					if(location.toUpperCase().contains("ENGR"))

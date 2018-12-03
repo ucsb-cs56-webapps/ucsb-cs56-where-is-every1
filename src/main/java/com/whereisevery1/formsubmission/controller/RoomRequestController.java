@@ -82,10 +82,10 @@ public class RoomRequestController {
 	// list.
 	public void buildRoomList(Model model, String currentBuilding) {
 
-		ArrayList<Integer> roomList;
+		ArrayList<String> roomList;
 
 		if (buildings.getBuildings().get(currentBuilding) == null) {
-			roomList = new ArrayList<Integer>();
+			roomList = new ArrayList<String>();
 		} else {
 			roomList = buildings.getBuildings().get(currentBuilding).getRoomNumbers();
 		}
@@ -106,9 +106,13 @@ public class RoomRequestController {
 		// The room request is needed for both a return to form and a move to result*.
 		model.addAttribute("roomrequest", roomRequest);
 
+		if (roomRequest.getBuildingName().equals("")) {
+			return "form";
+		}
+
 		// If we were provided a building, then build the roomList and return the form.
 		if (buildings != null) {
-			if (roomRequest.getRoomNumber() == "") {
+			if (roomRequest.getRoomNumber().equals("")) {
 				// Re-add the roomRequest to the model, so that it can be used to fill in the
 				// form on reload.
 				buildBuildingList(model);
@@ -123,7 +127,7 @@ public class RoomRequestController {
 						|| buildings.getBuildings().get(roomRequest.getBuildingName()) == null
 						|| buildings.getBuildings().get(roomRequest.getBuildingName()).getRooms() == null
 						|| buildings.getBuildings().get(roomRequest.getBuildingName()).getRooms()
-								.get(Integer.parseInt(roomRequest.getRoomNumber())) == null) {
+								.get(roomRequest.getRoomNumber()) == null) {
 					return "badInput";
 				} else {
 					// The user has entered the form with a building and a room, so now we have to
@@ -136,7 +140,7 @@ public class RoomRequestController {
 					}
 
 					HashMap<String, Day> dayMap = buildings.getBuildings().get(roomRequest.getBuildingName()).getRooms()
-							.get(Integer.parseInt(roomRequest.getRoomNumber())).getTimes();
+							.get(roomRequest.getRoomNumber()).getTimes();
 
 					// This code find the day that it is today using PST.
 					String day = LocalDateTime.now(ZoneId.of("America/Los_Angeles")).getDayOfWeek().toString();
