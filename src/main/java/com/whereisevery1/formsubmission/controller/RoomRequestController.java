@@ -46,7 +46,7 @@ public class RoomRequestController {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			try {
-				buildings = mapper.readValue(new File("src/main/resources/catalog.json"), SerializableBuildingList.class);
+				buildings = mapper.readValue(new File("catalog.json"), SerializableBuildingList.class);
 				model.addAttribute("buildinglist", buildings.getBuildings().keySet());
 				//System.out.println(buildings.getBuildings().keySet());
 			} catch (JsonGenerationException e) {
