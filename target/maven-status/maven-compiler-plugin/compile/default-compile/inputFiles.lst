@@ -1,8 +1,17 @@
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/controller/RoomRequestController.java
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/model/RoomRequest.java
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Room.java
+<<<<<<< HEAD
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Building.java
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Time.java
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Day.java
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Scraping.java
+=======
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/SerializableBuildingList.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Building.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/DatabaseCreator.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Time.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Day.java
+/home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/database/model/Scraper.java
+>>>>>>> a8de02e981e28f32f4de6e958305cf214467007a
 /home/luna/cs56/ucsb-cs56-where-is-every1/src/main/java/com/whereisevery1/formsubmission/SpringRoomRequestSubmissionApplication.java
