@@ -127,6 +127,14 @@
 					<mainClass>com.whereisevery1.database.model.DatabaseCreator</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+       				<configuration>
+         
+      				</configuration>
+      			</plugin>
 		</plugins>
 	</build>
 
