@@ -7,6 +7,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/** Creates json from scraped data
+*/
 public class DatabaseCreator {
 
 	public static void main(final String[] args) {
@@ -15,11 +17,16 @@ public class DatabaseCreator {
 		 d.writeToJSON();
 	}
 	
-	// This object contains all the information about each building, classroom, and
-	// days/times of classes.
+	/** Contains all the information about each building, classroom, and
+	* days/times of classes.
+	*/
 	private SerializableBuildingList data;
 
-	// To use this class to inflate all the java objects, run this method.
+	/**Inflates all the java objects. 
+	*The scraper returns a hashmap of buildings, which is put into the wrapper
+	*class SerializableBuildingList. This makes
+	* it easier to serialize with jackson.
+	*/
 	public void runScrape() {
 		// The scraper returns a hashmap of buildings, which is put into the wrapper
 		// class SerializableBuildingList. This makes
@@ -27,7 +34,8 @@ public class DatabaseCreator {
 		data = new SerializableBuildingList(Scraper.scrapeUCSB());
 	}
 
-	// Using the inflated objects from runScrape, convert data into json.
+	/** Using the inflated objects from runScrape, converts data into json.
+	*/
 	public void writeToJSON() {
 		// Object mapper class can convert java objects to json. Be sure that the java
 		// objects have getters and setters for all variables.
@@ -52,7 +60,8 @@ public class DatabaseCreator {
 		}
 	}
 
-	// For testing out handmade json databases.
+	//**For testing out handmade json databases.
+	*/
 	public void setData(SerializableBuildingList data) {
 		this.data = data;
 	}
