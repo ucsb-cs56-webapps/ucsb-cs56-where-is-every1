@@ -17,7 +17,7 @@ Heroku link:
 https://ucsb-cs56-where-is-every1.herokuapp.com/
 
 Note: 
-To regenerate the json, go into the main in SpringRoomRequestSubmissionApplication, and uncomment the code for for the database, and comment out the springboot run. Then run the shell script to generate the json. Switch these back to the orignal launch and run the project. 
+To regenerate the json, simply run generateJson.sh. If you're on windows, don't be on windows.
 
 Andrew: agprice
 
