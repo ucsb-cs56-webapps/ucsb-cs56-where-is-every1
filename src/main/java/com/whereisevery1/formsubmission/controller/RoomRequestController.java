@@ -101,7 +101,6 @@ public class RoomRequestController {
 	// return to form, but rebuilding the page with a list of room numbers.
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String customerSubmit(@ModelAttribute RoomRequest roomRequest, Model model) {
-
 		// The room request is needed for both a return to form and a move to result*.
 		roomRequest.toUpper();
 		model.addAttribute("roomrequest", roomRequest);
@@ -137,7 +136,7 @@ public class RoomRequestController {
 					// This code find the day that it is today using PST.
 					String day = LocalDateTime.now(ZoneId.of("America/Los_Angeles")).getDayOfWeek().toString();
 
-					if (!roomRequest.getDay().equals("Today")) {
+					if (!roomRequest.getDay().equals("TODAY")) {
 						day = roomRequest.getDay();
 					} else {
 						switch (day) {
