@@ -51,6 +51,12 @@ public class RoomRequestController {
 		return "form";
 	}
 
+	// This request mapping provides the error page.
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String errorPage(Model model) {
+		return "error";
+	}
+
 	// This function checks to see if the json database has been read. If it has, it
 	// uses the data stored in buildings already.
 	// If it hasn't, it gets them from the json database.
