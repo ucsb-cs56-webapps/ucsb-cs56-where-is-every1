@@ -34,7 +34,7 @@ public class Building {
 	}
 
 	/** Gets rooms in the Building
-	* @return a HashMap<Integer,Room> containing rooms in the Building
+	* @return a HashMap containing rooms in the Building
 	*/
 	public HashMap<String, Room> getRooms() {
 		return rooms;
@@ -42,7 +42,7 @@ public class Building {
 
 	/** Gets the room numbers of the Building.
 	* HashMap keyset() creates a set out of the key elements contained in the hash map
-	*@return a ArrayList<Integer> containing room numbers of all the rooms in the Building
+	*@return a ArrayList of Integers containing room numbers of all the rooms in the Building
 	*/
 	public ArrayList<String> getRoomNumbers() {
 		return new ArrayList<String>(rooms.keySet());
