@@ -40,8 +40,9 @@
 				th:object="${roomrequest}" method="post">
 				<p>
 					Building<br /> <span class="myarrow"><input
-						onblur="this.form.submit()" class="inputField" type="text"
-						maxlength="20" th:field="*{buildingName}" list="buildingList" /></span>
+						onClick="this.select();" onblur="this.form.submit()"
+						class="inputField" type="text" maxlength="20"
+						th:field="*{buildingName}" list="buildingList" /></span>
 
 					<datalist id="buildingList">
 						<option th:each="row : ${buildinglist}" th:value="${row}"
@@ -49,8 +50,9 @@
 					</datalist>
 				</p>
 				<p>
-					Room Number<br /> <input class="inputField" type="text"
-						th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
+					Room Number<br /> <input onClick="this.select();"
+						class="inputField" type="text" th:field="*{roomNumber}"
+						list="rooms" autofocus="true" value="" />
 					<datalist id="rooms">
 						<option th:each="room : ${roomlist}" th:value="${room}" />
 					</datalist>

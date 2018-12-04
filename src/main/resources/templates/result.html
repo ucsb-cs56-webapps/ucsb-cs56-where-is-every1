@@ -25,7 +25,7 @@
 	<div class="messageArea">
 		<h1>Result</h1>
 		<p
-			th:text="'For the day: ' + ${day.getDay()} + ' in Building: ' +  ${roomrequest.getBuildingName()} + ' the schedule is: ' + ${day.getTimes().toString()}" />
+			th:utext="'For the day: ' + ${day.getDay()} + ' in Building: ' +  ${roomrequest.getBuildingName()} + ' Room: ' + ${roomrequest.getRoomNumber()} + '<br />' + 'The schedule is: ' + '<br />' + ${day.getTimes().toString()}" />
 		<!-- <p th:text="'roomNumber: ' + ${building.roomNumber}" /> -->
 		<a href="/">Search for another room</a>
 	</div>
