@@ -60,10 +60,10 @@
 			<scope>test</scope>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.mongodb</groupId> -->
-<!-- 			<artifactId>mongo-java-driver</artifactId> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.mongodb</groupId> -->
+		<!-- <artifactId>mongo-java-driver</artifactId> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			</dependency>
+		</dependency>
 
 	</dependencies>
 
@@ -110,6 +110,21 @@
 						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar --server.port=$PORT</web>
 
 					</processTypes>
+				</configuration>
+
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>com.whereisevery1.database.model.DatabaseCreator</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

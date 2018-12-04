@@ -29,48 +29,51 @@
 		<div class="titleArea">
 			<h1>WhereIsEvery1?</h1>
 			<h5>Here is a haiku</h5>
-			<p>Give us a building<br>And give us a room number<br>Here is some free space</p>
+			<p>
+				Give us a building<br>And give us a room number<br>Here is
+				some free space
+			</p>
 		</div>
-		<div class = "searchArea">
+		<div class="searchArea">
 			<h1>Search For Classrooms</h1>
-			<form action="#" autocomplete="off" th:action="@{/}" th:object="${roomrequest}"
-			method="post">
-			<p>
-				Building<br /> <input onblur="this.form.submit()"
-					class="inputField" type="text" maxlength="20"
-					th:field="*{buildingName}" list="buildingList" />
+			<form action="#" autocomplete="off" th:action="@{/}"
+				th:object="${roomrequest}" method="post">
+				<p>
+					Building<br /> <span class="myarrow"><input
+						onblur="this.form.submit()" class="inputField" type="text"
+						maxlength="20" th:field="*{buildingName}" list="buildingList" /></span>
 
-				<datalist id="buildingList">
-					<option th:each="row : ${buildinglist}" th:value="${row}"
-						th:label="${row}" />
-				</datalist>
-			</p>
-			<p>
-				Room Number<br /> <input class="inputField" type="text"
-					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
-				<datalist id="rooms">
-					<option th:each="room : ${roomlist}" th:value="${room}" />
-				</datalist>
-			</p>
-			<p>
-				<!-- 				Day (Default: today)<br /> <input class="inputField" type="text" maxlength="20" -->
-				<!-- 					th:field="*{day}" list="dayList" /> -->
+					<datalist id="buildingList">
+						<option th:each="row : ${buildinglist}" th:value="${row}"
+							th:label="${row}" />
+					</datalist>
+				</p>
+				<p>
+					Room Number<br /> <input class="inputField" type="text"
+						th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
+					<datalist id="rooms">
+						<option th:each="room : ${roomlist}" th:value="${room}" />
+					</datalist>
+				</p>
+				<p>
+					<!-- 				Day (Default: today)<br /> <input class="inputField" type="text" maxlength="20" -->
+					<!-- 					th:field="*{day}" list="dayList" /> -->
 
-				<select th:field="*{day}" id="dayList">
-					<option selected value="TODAY">Today</option>
-					<option value="M">Monday</option>
-					<option value="T">Tuesday</option>
-					<option value="W">Wednesday</option>
-					<option value="R">Thursday</option>
-					<option value="F">Friday</option>
-					<option value="S">Saturday</option>
-					<option value="SU">Sunday</option>
-				</select>
-			</p>
-			<p>
-				<input type="submit" value="Submit" />
-			</p>
-		</form>
+					<select th:field="*{day}" id="dayList">
+						<option selected value="TODAY">Today</option>
+						<option value="M">Monday</option>
+						<option value="T">Tuesday</option>
+						<option value="W">Wednesday</option>
+						<option value="R">Thursday</option>
+						<option value="F">Friday</option>
+						<option value="S">Saturday</option>
+						<option value="SU">Sunday</option>
+					</select>
+				</p>
+				<p>
+					<input type="submit" value="Submit" />
+				</p>
+			</form>
 		</div>
 	</div>
 </body>

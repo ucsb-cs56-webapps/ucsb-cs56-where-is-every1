@@ -9,6 +9,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DatabaseCreator {
 
+	public static void main(final String[] args) {
+		 DatabaseCreator d = new DatabaseCreator();
+		 d.runScrape();
+		 d.writeToJSON();
+	}
+	
 	// This object contains all the information about each building, classroom, and
 	// days/times of classes.
 	private SerializableBuildingList data;

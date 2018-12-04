@@ -1,42 +1,57 @@
 .inputArea {
-    width: 500px;
+	width: 500px;
 	margin: auto;
-    margin-top: 50px;
-    /*background-color: #fafbfc;*/
-    text-align: center;
+	margin-top: 50px;
+	/*background-color: #fafbfc;*/
+	text-align: center;
+}
+
+@
+-moz-document url-prefix () { input::-webkit-calendar-picker-indicator {
+	display: none; /* remove default arrow */
+}
+
+}
+.myarrow:after {
+	content: url("../images/arrow.png");
+	margin-left: -20px;
+	padding: .1em;
+	pointer-events: none;
 }
 
 div.titleArea {
-  padding: 7px;
-  color: black;
+	padding: 7px;
+	color: #586069 !important;
+	/* 	color: black; */
 }
 
 div.messageArea {
-  width: 500px;
-  margin : auto;
-  margin-top : 150px;
-  background-color: #fafafa;
-  border: 5px solid #353432ff;
-  border-opacity: 60%;
-  color: #586069 !important;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  /* border-style: green;*/
-  /*background-color: #fafbfc;*/
-  text-align: center;
+	width: 500px;
+	margin: auto;
+	margin-top: 150px;
+	padding: 10px;
+	/* 		background-color: #fafafa; */
+	border: 5px solid #353432ff;
+	border-opacity: 60%;
+	color: #586069 !important;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-style: green;
+	background-color: #fafbfc;
+	text-align: center;
 }
 
-div.searchArea{
-  margin-top : 25px;
-  background-color: #fafafa;
-  border: 5px solid #353432ff;
-  border-opacity: 60%;
-  color: #586069 !important;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  /* border-style: green;*/
+div.searchArea {
+	margin-top: 25px;
+	background-color: #fafafa;
+	border: 5px solid #353432ff;
+	border-opacity: 60%;
+	color: #586069 !important;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	/* border-style: green;*/
 }
 
 .navbar-brand {
@@ -45,7 +60,7 @@ div.searchArea{
 
 .navbar {
 	height: 50px;
-	color: #586069 !important;
+	/* 	color: #586069 !important; */
 }
 
 form {
@@ -58,6 +73,11 @@ form {
 	width: 100%;
 	display: block;
 	margin-top: 0em;
+}
+
+input[type="text"], textarea {
+	background-color: #ffffff !important;
+	color: #586069;
 }
 
 input {
@@ -86,21 +106,21 @@ input {
 	-webkit-border-radius: 7px;
 	border-radius: 7px;
 	-webkit-writing-mode: horizontal-tb !important;
-	color: #586069 !important;
+	/* 	color: #586069 !important; */
 }
 
 .inputField {
 	font-size: 16px !important;
 	padding: 1px;
 	text-indent: 5px;
-	color: #586069 !important;
+	/* 	color: #586069 !important; */
 }
 
 body {
 	background-image: url("../images/background.png");
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
 		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-	background-color: grey;
+	/* 	background-color: grey; */
 	line-height: 1.5;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
 		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
