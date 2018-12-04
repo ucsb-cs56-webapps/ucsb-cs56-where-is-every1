@@ -1,15 +1,21 @@
+.inputArea {
+    width: 500px;
+	margin: auto;
+    margin-top: 50px;
+    /*background-color: #fafbfc;*/
+    text-align: center;
+}
+
 div.titleArea {
-  position: absolute;
   padding: 7px;
-  width: 500px;
   color: black;
 }
-div.searchArea{
-  position: absolute;
+
+div.messageArea {
   width: 500px;
+  margin : auto;
   margin-top : 150px;
   background-color: #fafafa;
-  
   border: 5px solid #353432ff;
   border-opacity: 60%;
   color: #586069 !important;
@@ -17,14 +23,20 @@ div.searchArea{
   -webkit-border-radius: 10px;
   border-radius: 10px;
   /* border-style: green;*/
+  /*background-color: #fafbfc;*/
+  text-align: center;
 }
-.inputArea {
-    position: absolute;
-    top: 50px;
-    left: 30%;
-    /*background-color: #fafbfc;*/
-    margin: auto;
-    text-align: center;
+
+div.searchArea{
+  margin-top : 50px;
+  background-color: #fafafa;
+  border: 5px solid #353432ff;
+  border-opacity: 60%;
+  color: #586069 !important;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* border-style: green;*/
 }
 
 .navbar-brand {
