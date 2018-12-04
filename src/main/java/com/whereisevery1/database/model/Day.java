@@ -21,6 +21,7 @@ public class Day {
 	
 	/** Creates a Day with a specified name
 	* and initializes times
+	*@param d name of day
 	*/
 	public Day(String d) {
 		this.day = d;
