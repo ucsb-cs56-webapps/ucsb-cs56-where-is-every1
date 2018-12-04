@@ -60,7 +60,8 @@ public class DatabaseCreator {
 		}
 	}
 
-	//**For testing out handmade json databases.
+	/**For testing out handmade json databases.
+	*@param data SerializableBuildingList containing all our data
 	*/
 	public void setData(SerializableBuildingList data) {
 		this.data = data;
