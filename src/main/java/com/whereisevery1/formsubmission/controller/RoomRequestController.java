@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 //import org.slf4j.Logger;
@@ -31,6 +32,8 @@ public class RoomRequestController {
 	// This is where the json file ends up on the heroku server. Locally it should
 	// live in resources.
 	public static final String jsonLocation = "target/classes/catalog.json";
+	// A sorted list of all buildings in the database.
+	private ArrayList<String> buildingsSorted;
 
 	SerializableBuildingList buildings;
 
@@ -63,10 +66,12 @@ public class RoomRequestController {
 	public void buildBuildingList(Model model) {
 		if (buildings == null) {
 			ObjectMapper mapper = new ObjectMapper();
-
 			try {
 				buildings = mapper.readValue(new File(jsonLocation), SerializableBuildingList.class);
-				model.addAttribute("buildinglist", buildings.getBuildings().keySet());
+				buildingsSorted = new ArrayList<String>();
+				buildingsSorted.addAll(buildings.getBuildings().keySet());
+				Collections.sort(buildingsSorted);
+				model.addAttribute("buildinglist", buildingsSorted);
 
 			} catch (JsonGenerationException e) {
 				e.printStackTrace();
@@ -77,7 +82,7 @@ public class RoomRequestController {
 			}
 		} else {
 			// The list of buildings is all the keys in the building hashmap.
-			model.addAttribute("buildinglist", buildings.getBuildings().keySet());
+			model.addAttribute("buildinglist", buildingsSorted);
 		}
 	}
 
@@ -94,6 +99,7 @@ public class RoomRequestController {
 		} else {
 			roomList = buildings.getBuildings().get(currentBuilding).getRoomNumbers();
 		}
+		Collections.sort(roomList);
 		model.addAttribute("roomlist", roomList);
 	}
 
