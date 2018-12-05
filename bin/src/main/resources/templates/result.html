@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Room Request Results</title>
+<link href="../static/css/submissionform.css"
+	th:href="@{css/submissionform.css}" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="inputArea">
+		<h1>Result</h1>
+		<p th:text="'Building: ' + ${building.buildingName}" />
+		<p th:text="'roomNumber: ' + ${building.roomNumber}" />
+		<a href="/">Search for another room</a>
+	</div>
+</body>
+</html>
