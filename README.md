@@ -16,6 +16,9 @@ To push to heroku, use:
 Heroku link:
 https://ucsb-cs56-where-is-every1.herokuapp.com/
 
+Javadoc link:
+https://ucsb-cs56-f18.github.io/ucsb-cs56-where-is-every1/apidocs/
+
 Note: 
 To regenerate the json, simply run generateJson.sh. If you're on windows, don't be on windows.
 
