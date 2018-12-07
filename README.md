@@ -34,5 +34,4 @@ Kyle: KyleG43
 
 Yagnya: yagnyaPatel
 
-# f18 Final Remarks
-To build off of our project, you can use MongoDB and mlab to make a database instead of storing the scraped data in a JSON file. A feature that could be added is being able to find rooms near you if the room you requested is occupied. Another feature could be just searching by buildings and then finding all the free rooms in the building. You might want to add some mobile support so the site looks nicer on a mobile browser. Don't forget to have fun! 
+
